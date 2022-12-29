@@ -20,3 +20,15 @@ Using precedence rules, evaluate the following expressions and determine the val
 1. c = 0xFF
 2. x=11, z=16, y=17
 3. 
+
+Problem 2.5
+Determine if the following statements have any errors. If so, highlight them and explain why.
+• int 2nd_value=10;
+• Assume (x=0,y=0,alliszero=1). alliszero =(x=1) && (y=0);
+• Assume (x=10,y=3,z=0;). y=++x+y;z=z−−>x;
+• Assume that we want to test if last four bits of x are on. (int MASK=0xF;ison=x&MASK==MASK)
+
+1. number can not be the first character.
+2. alliszero = (x==1) && (y==0)
+3. correct
+4. ison = (x&MASK)==MASK
