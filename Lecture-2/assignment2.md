@@ -1,4 +1,70 @@
+Problem 2.1
+Determine the size,minimum and maximum value following data types. Please specify if your
+machine is 32 bit or 64 bits in the answer.
+• char
+• unsigned char
+• short
+• int
+• unsigned int
+• unsigned long
+• float
+Hint: Use sizeof() operator,limits.h and float.h header files
 
+ans:
+'''
+#include <limits.h>
+#include <math.h>
+#include <stdio.h>
+#include <float.h>
+
+int main(){
+
+	printf("The size of char is %d, minimum is %d, maximum is %d\n", sizeof(char), CHAR_MIN, CHAR_MAX);
+	printf("The size of unsigned char is %d, minimum is %d, maximum is %u\n", sizeof(unsigned char), 0, UCHAR_MAX);
+	printf("The size of short is %d, minimum is %d, maximum is %d\n", sizeof(short), SHRT_MIN, SHRT_MAX);
+	printf("The size of int is %d, minimum is %d, maximum is %d\n", sizeof(int), INT_MIN, INT_MAX);
+	printf("The size of unsigned int is %d, minimum is %d, maximum is %u\n", sizeof(unsigned int), 0, UINT_MAX);
+	printf("The size of unsigned long is %d, minimum is %d, maximum is %u\n", sizeof(unsigned long), 0, ULONG_MAX);
+	printf("The size of float is %d, minimum is %f, maximum is %f\n", sizeof(float), FLT_MIN, FLT_MAX);
+'''
+
+Problem 2.2
+Write logical expressions that tests whether a given character variable c is
+• lower case letter
+• upper case letter
+• digit
+• white space (includes space,tab,new line)
+
+ans:
+'''
+#include <stdio.h>
+
+int main(){
+
+	char c;
+	printf("Please input a character:\n");
+	scanf("%c", &c);
+	if (c>='a'&&c<='z')
+	{
+		printf("lower case letter!\n");
+	}
+	else if (c>='A'&&c<='Z')
+	{
+		printf("upper case letter!\n");
+	}
+	else if (c>='0'&&c<='9')
+	{
+		printf("digit!\n");
+	}
+	else
+	{
+		printf("white space!\n");
+	}
+	
+	return 0;
+}
+
+'''
 
 
 
