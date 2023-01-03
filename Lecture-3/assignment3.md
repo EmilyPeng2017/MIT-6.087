@@ -192,8 +192,22 @@ emily@raspberrypi ~/D/M/Lecture-3 (main)> ./prob4.o fileList.txt
 debug2 1 fileList.txt
 word=1, line=1, character=20, currfile=fileList.txt
 ```
+Problem 3.5
+In this problem, we will be reading in formatted data and generating a report. One of the common formats for interchange of formatted data is ’tab delimited’ where each line corresponds to a single record. The individual fields of the record are separated by tabs. For this problem, download the file stateoutflow0708.txt from Stellar. This contains the emigration of people from individual states. The first row of the file contains the column headings. There are eight self explanatory fields. Your task is to read the file using fscanf and generate a report outlining the migration of people from Massachusetts to all the other states. Use the field ”Aggr AGI” to report the numbers. Also, at the end, display a total and verify it is consistent with the one shown below. An example report should look like the following:
+```
+STATE			TOTAL
+---------------------
+"FLORIDA"		590800
+"NEW HAMPSHIRE" 421986
+..........
+---------------------
+Total			4609483
+```
 
+ans:
+```
 
+```
 
 
 
