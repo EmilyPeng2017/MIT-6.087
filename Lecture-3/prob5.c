@@ -24,7 +24,7 @@ int main(void)
 	int stateCount = 0;
 	int tempCnt = 0;
 	int total = 0;
-	for (int count=0; count<10000; count++)
+	for (int count=0; count<(10000); count++)
 	{
 		if (count<9)
 		{
@@ -77,15 +77,15 @@ int main(void)
 
 	}
 	
-	printf("STATE\t\t\tTOTAL\n");
+	printf("%-10s%30s\n", "STATE", "TOTAL");
 	printf("-------------------------\n");
 
 	for (int i=0; i<stateCount; i++)
 	{
-		printf("%s\t\t\t%d\n", withMassaInfo[i].stateName, withMassaInfo[i].aggrNum);
+		printf("%-10s%30d\n", withMassaInfo[i].stateName, withMassaInfo[i].aggrNum);
 		total += withMassaInfo[i].aggrNum;
 	}
 	printf("-------------------------\n");
-	printf("Total\t\t\t%d\n", total);
+	printf("%-10s%30d\n", "TOTAL", total);
 
 }
