@@ -4,7 +4,7 @@
 #include <string.h>
 
 #define MAX_STATE_NUM (50)
-#define MAX_STATE_CHARACTER_COUNT (20)
+#define MAX_STATE_CHARACTER_COUNT (30)
 
 struct STATEINFO
 {
@@ -19,12 +19,12 @@ int main(void)
 	fp = fopen("stateoutflow0708.txt", "r");
 	struct STATEINFO withMassaInfo[MAX_STATE_NUM];
 	char tempStr[MAX_STATE_CHARACTER_COUNT];
+	int aggrTemp = 0;
 	bool findFlag=false;
 	int stateCount = 0;
-	int endFlag = EOF;
 	int tempCnt = 0;
 	int total = 0;
-	for (int count=0; count<1000; count++)
+	for (int count=0; count<10000; count++)
 	{
 		if (count<9)
 		{
@@ -36,7 +36,7 @@ int main(void)
 			if (0==count%9)
 			{
 				fscanf(fp, "%s", tempStr);
-				if (strcmp(tempStr,"25"))
+				if (0==strcmp(tempStr,"\"25\""))
 				{
 					findFlag = true;
 				}
@@ -47,18 +47,18 @@ int main(void)
 				fscanf(fp, "%s", tempStr);
 				for (int i=0; i<=stateCount; i++)
 				{
-					if (!strcmp(tempStr, withMassaInfo[stateCount].stateName)&&(i==stateCount))
+					if ((i==stateCount)&&(0!=strcmp(tempStr, withMassaInfo[stateCount].stateName)))
 					{
 						stateCount++;
 						tempCnt = stateCount;
 						memset(withMassaInfo[stateCount].stateName, '\0', MAX_STATE_CHARACTER_COUNT);
-						strcpy(withMassaInfo[stateCount].stateName,tempStr);
+						withMassaInfo[stateCount].aggrNum = 0;
+						strcpy(withMassaInfo[stateCount].stateName, tempStr);
+						break;
 					}
-					else if (strcmp(tempStr, withMassaInfo[stateCount].stateName))
+					else if (0==strcmp(tempStr, withMassaInfo[i].stateName))
 					{
 						tempCnt = i;
-						memset(withMassaInfo[stateCount].stateName, '\0', MAX_STATE_CHARACTER_COUNT);
-						strcpy(withMassaInfo[stateCount].stateName,tempStr);
 						break;
 					}
 				}
@@ -66,7 +66,8 @@ int main(void)
 			}
 			if (findFlag && (8==count%9))
 			{
-				fscanf(fp, "%d", &withMassaInfo[tempCnt].aggrNum);
+				fscanf(fp, "%d", &aggrTemp);
+				withMassaInfo[tempCnt].aggrNum += aggrTemp;
 				findFlag = false;
 				continue;
 			}
@@ -86,10 +87,5 @@ int main(void)
 	}
 	printf("-------------------------\n");
 	printf("Total\t\t\t%d\n", total);
-// first we need to get the state code of Massachusetts
-
-
-
-
 
 }
