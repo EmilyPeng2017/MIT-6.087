@@ -4,13 +4,13 @@
 
 (a) what do curly braces denote in C? Why does it make sense to use curly braces to surround the body of a function?
 
-anw：
+ans：
 
 - Curly braces mean a block of code with the aim to complete one function
 - a function is a set of code to achieve one goal, curly brace makes it a whole block
 
 (b) Describe the difference between the literal values 7, "7", and '7'
-anw：
+ans：
 
 - 7 is a number, it could be int. "7" is a string, '7' is a char.
 
