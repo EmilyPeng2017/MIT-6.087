@@ -88,7 +88,84 @@ char *strtok(char *text, const char *delims)
 	return text;
 }
 ```
-(a) 
+(a) In the context of our string tokenizer, the function strspn() conputes the index of the first non-delimiter character in our string. Using pointers or array indexing (your choice), implement the strspn() function. In order to locate a character in another string, you may use the function strpos(), which is declared below:
+```
+int strpos(const char *str, const char ch);
+``` 
+This function returns the index of the first occurrence of the character ch in the string str, or -1 if ch is not found. The declaration of strspn() is provided below:
+Here, delims is a string containing the set of delimiters, and the return value is the index of the first non-delimiter character in the string str. For instance, strspn(" . This", ".") == 3. If the string contains only delimiters, strspn() should return the index of the null-terminator ('\0'). Assume '\0' is not a delimiter.
+```
+unsigned int strspn(const char *str, const char *delims)
+{
+	int index;
+	for (index=0; *(str+index)!=NULL; index++)
+	{
+		for (int i=0; *(delims+i)!=NULL; i++)
+		{
+			if (-1 == strpos(str+index, *(delims+i))
+				return index;
+		}
+	}
+
+	return index;
+}
+```
+(b) The function strcspn() computes the index of the first delimiter character in our string. Here's the declaration of strcspn():
+```
+unsigned int strcspn(const char *str, const char *delims)
+{
+	int index;
+	
+	for (index=0; *(str+index)!=NULL; index++)
+	{
+		for (int i=0; *(delims+i)!=NULL; i++)
+		{
+			if (-1 != strpos(str+index, *(delims+i))
+				return index;
+		}
+	}
+
+	return index;
+}
+
+
+```
+if the string contains no delimiters, return the idex of the null-terminator ('\0'). IMplement this function using either pointers or array indexing.
+
+Problem 4.3
+In this problem, you will be implementing the shell sort. This sort is built upon the insertion sort, but attains a speed increase by comparing far-away elements against each other before comparing closer-together elements. This distance between elements is called the "gap". In this shell sort, the array is sorted by sorting gap sub-arrays, and then repeating with a smaller gap size.
+	As written here, the algorithm sorts in O(n^2) time. However, by adjusting the sequence of gap sizes used, it is possible to improve the performance to O(n^3/2), O(n^4/3), or even O(n(logn)^2) time. You can read about a method for performing the shell sort in O(n(log n)^2) time on Robert Sedgewick's page at Princeton:
+	http://www.cs.princeton.edu/~rs/shell/paperF.pdf
+Note that you can find complete C code for the shell sort at the beginning of the paper, so please wait until you have finished this exercise to read it.
+(a) First, we will modify the shift_element() function from the insertion sort code for the shell sort. The new function, started for you below, should start at index i and shift by intervals of size gap. Write the new function, using array indexing or pointers. Assume that i>=gap.
+```
+void shift_element_by_gap(unsigned int i, unsigned int gap)
+{
+	
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
